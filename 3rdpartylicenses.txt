@@ -93,7 +93,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@angular/material@6.0.0-rc.0
+@angular/material@6.0.0-rc.6
 MIT
 The MIT License
 
@@ -117,19 +117,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/core@6.0.0-rc.3
+@angular/core@6.0.0-rc.4
 MIT
 MIT
 
-@angular/common@6.0.0-rc.3
+@angular/common@6.0.0-rc.4
 MIT
 MIT
 
-@angular/router@6.0.0-rc.3
+@angular/router@6.0.0-rc.4
 MIT
 MIT
 
-@angular/forms@6.0.0-rc.3
+@angular/forms@6.0.0-rc.4
 MIT
 MIT
 
@@ -203,7 +203,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@angular/material-moment-adapter@6.0.0-rc.0
+@angular/material-moment-adapter@6.0.0-rc.6
 MIT
 The MIT License
 
@@ -299,30 +299,6 @@ MIT License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
 
-@agm/core@1.0.0-beta.2
-MIT
-The MIT License (MIT)
-
-Copyright (c) 2017 Sebastian Müller
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
 d3@3.5.17
 BSD-3-Clause
 Copyright (c) 2010-2016, Michael Bostock
@@ -352,7 +328,7 @@ OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-@ngxs/store@3.0.0-dev.82ecb5f
+@ngxs/store@3.0.0-rc.1
 MIT
 MIT
 
@@ -392,7 +368,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@angular/animations@6.0.0-rc.3
+@angular/animations@6.0.0-rc.4
 MIT
 MIT
 
@@ -420,11 +396,11 @@ MIT License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
 
-@angular/platform-browser@6.0.0-rc.3
+@angular/platform-browser@6.0.0-rc.4
 MIT
 MIT
 
-@angular/cdk@6.0.0-rc.0
+@angular/cdk@6.0.0-rc.6
 MIT
 The MIT License
 
@@ -500,11 +476,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-jsrsasign@8.0.8
+jsrsasign@8.0.10
 MIT
 MIT
 
-@angular/service-worker@6.0.0-rc.3
+@angular/service-worker@6.0.0-rc.4
 MIT
 MIT
 
@@ -591,15 +567,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/http@6.0.0-rc.3
+@angular/http@6.0.0-rc.4
 MIT
 MIT
 
-@ngxs/devtools-plugin@3.0.0-dev.82ecb5f
+@ngxs/devtools-plugin@3.0.0-rc.1
 MIT
 MIT
 
-@angular/platform-browser-dynamic@6.0.0-rc.3
+@angular/platform-browser-dynamic@6.0.0-rc.4
 MIT
 MIT
 
