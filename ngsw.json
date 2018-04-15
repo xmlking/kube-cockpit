@@ -113,23 +113,23 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/nx-starter-kit/0.chunk.js": "c39a06a2853812cf1354b428fff59324e9375dca",
+    "/nx-starter-kit/0.chunk.js": "dbee993ec3e373b8325350c2abbd026d0e5f36f1",
     "/nx-starter-kit/assets/nx-logo.png": "5900ee9d2359704cd39b0433d062b834c3ea8f91",
     "/nx-starter-kit/1.chunk.js": "7d80958e1f76855c23b9f641e2bd26a5fe8acbe2",
     "/nx-starter-kit/assets/data/accounts.json": "c2e89b716078d190da318ae1f1298e515dd25d74",
-    "/nx-starter-kit/2.chunk.js": "45d249b9c4156ff81ed3dda044a050f7fae6b3cf",
+    "/nx-starter-kit/2.chunk.js": "44302bd0cde1e109d962f15e0d0bdad6ed2e7915",
     "/nx-starter-kit/assets/i18n/en.json": "ef0b4d0a755e5811ee8c07c500e8a5b06b3b37a3",
     "/nx-starter-kit/3.chunk.js": "d9f9a9c0c70bb5ab00acf3135b54129e8105dfc1",
     "/nx-starter-kit/assets/i18n/es.json": "d5fbbe9c7f87432863616ceebe2f3ebdc148334f",
     "/nx-starter-kit/4.chunk.js": "086fbb5a503184182b304e9744f461ec6f694c7d",
     "/nx-starter-kit/assets/img/logo-icon.png": "06a0c4e3cb448c99c4b826d24dab969313b26d58",
-    "/nx-starter-kit/5.chunk.js": "d23b02e07b0d9d503e624d5408b49d4dda3eeb54",
+    "/nx-starter-kit/5.chunk.js": "1886c0fbf3f4dbe384138dd52075876e8a62c574",
     "/nx-starter-kit/assets/img/logo-icon2.png": "7c59f4f5ca964dac9f368978f9ddfc676c342ff8",
     "/nx-starter-kit/6.chunk.js": "b6f4b027c93ac001776bc5c1a5fc711f7f8c5150",
     "/nx-starter-kit/assets/img/logo-text-dark.png": "aa4c3ce2d433265d1154d67642d39c6a555edb8f",
     "/nx-starter-kit/inline.bundle.js": "a9500c8c75b9e4c01263b62aba1a7480d31b2d27",
     "/nx-starter-kit/assets/img/logo-text.png": "f4e850060077d471a03de9874b15649acebd2d67",
-    "/nx-starter-kit/main.bundle.js": "8ecdcc034edbed5844d086372b3525ec348debc2",
+    "/nx-starter-kit/main.bundle.js": "93d0dd2b8d640c877c12518db097f5d8821f3508",
     "/nx-starter-kit/assets/img/logo-text2.png": "d6042a1fe74fcd8c03bff047fa6d57b3ca68eaa4",
     "/nx-starter-kit/polyfills.bundle.js": "c5e0c2d5caea2484987d6498d7f469b8e488177d",
     "/nx-starter-kit/assets/img/logo-text3.png": "f1f3be50dc148b13b3f16b52c7e55bef7fceebd8",
@@ -195,5 +195,23 @@
     "/nx-starter-kit/assets/themes/indigo-pink.bundle.css": "0b2399b41c6a0ae5765a4c65a98af7c4e8a813b3",
     "/nx-starter-kit/assets/themes/pink-bluegrey.bundle.css": "e6ef6bb38824c9d1b75195eec655a2702e88c966",
     "/nx-starter-kit/assets/themes/purple-green.bundle.css": "3a2bc70d29e6638611735879a2fa9537a8b3b82b"
-  }
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
 }

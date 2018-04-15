@@ -93,7 +93,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-@angular/material@6.0.0-rc.6
+@angular/material@6.0.0-rc.11
 MIT
 The MIT License
 
@@ -117,19 +117,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/core@6.0.0-rc.4
+@angular/core@6.0.0-rc.5
 MIT
 MIT
 
-@angular/common@6.0.0-rc.4
+@angular/common@6.0.0-rc.5
 MIT
 MIT
 
-@angular/router@6.0.0-rc.4
+@angular/router@6.0.0-rc.5
 MIT
 MIT
 
-@angular/forms@6.0.0-rc.4
+@angular/forms@6.0.0-rc.5
 MIT
 MIT
 
@@ -203,7 +203,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@angular/material-moment-adapter@6.0.0-rc.6
+@angular/material-moment-adapter@6.0.0-rc.11
 MIT
 The MIT License
 
@@ -368,7 +368,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@angular/animations@6.0.0-rc.4
+@angular/animations@6.0.0-rc.5
 MIT
 MIT
 
@@ -396,11 +396,11 @@ MIT License
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE
 
-@angular/platform-browser@6.0.0-rc.4
+@angular/platform-browser@6.0.0-rc.5
 MIT
 MIT
 
-@angular/cdk@6.0.0-rc.6
+@angular/cdk@6.0.0-rc.11
 MIT
 The MIT License
 
@@ -480,7 +480,7 @@ jsrsasign@8.0.10
 MIT
 MIT
 
-@angular/service-worker@6.0.0-rc.4
+@angular/service-worker@6.0.0-rc.5
 MIT
 MIT
 
@@ -567,7 +567,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/http@6.0.0-rc.4
+@angular/http@6.0.0-rc.5
 MIT
 MIT
 
@@ -575,7 +575,7 @@ MIT
 MIT
 MIT
 
-@angular/platform-browser-dynamic@6.0.0-rc.4
+@angular/platform-browser-dynamic@6.0.0-rc.5
 MIT
 MIT
 
