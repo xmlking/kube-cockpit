@@ -115,11 +115,11 @@
   "hashTable": {
     "/nx-starter-kit/0.chunk.js": "243c8767095ae1721bb253bec3c9012931e8082f",
     "/nx-starter-kit/1.chunk.js": "0acf53f9c9cb81d1546805ed36efcd0a7d019bcf",
-    "/nx-starter-kit/2.chunk.js": "3ce795b23dd6800bc929728c9f632e90649d3f82",
+    "/nx-starter-kit/2.chunk.js": "dc2637ab0503e3ce3cbc3065c906c8b00ac0ea10",
     "/nx-starter-kit/3.chunk.js": "6936214d095a1185aee6f5bbacc0bfb4c05cf0cf",
     "/nx-starter-kit/4.chunk.js": "3486946011fa169f89af23dfd490d056f003506b",
-    "/nx-starter-kit/5.chunk.js": "2e157d0a2cd6d530f0d30760f0d32f7097cc76c0",
-    "/nx-starter-kit/6.chunk.js": "f3deeaa99f6de69b095b517e62874d2d6a3cbd6f",
+    "/nx-starter-kit/5.chunk.js": "ceaab9b9c66bb27b3c0d1ffb2fa524ca666e8f9d",
+    "/nx-starter-kit/6.chunk.js": "3dd0c988c9633b9ca07c747524b652a0469e5906",
     "/nx-starter-kit/assets/data/accounts.json": "c2e89b716078d190da318ae1f1298e515dd25d74",
     "/nx-starter-kit/assets/i18n/en.json": "c4df6b132a9a1ce401c807725a1b28389c3691a2",
     "/nx-starter-kit/assets/i18n/es.json": "06028ae7d52edb635e74ae9a89e44ba8ea33aa7b",
@@ -192,7 +192,7 @@
     "/nx-starter-kit/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "/nx-starter-kit/index.html": "50302ba57d94dfb755d57681c4a20e99f2f677ae",
     "/nx-starter-kit/inline.bundle.js": "a9500c8c75b9e4c01263b62aba1a7480d31b2d27",
-    "/nx-starter-kit/main.bundle.js": "70daaf4b9188ad2e1cb1647703a73a5ac8d4bbaf",
+    "/nx-starter-kit/main.bundle.js": "fdfff041b14dfb14b38c5f72b4b934d8d734112b",
     "/nx-starter-kit/polyfills.bundle.js": "d86307bc88d3659609b58db214f46cd446f3d687",
     "/nx-starter-kit/styles.bundle.css": "f510d00bc97210e698179fbee9c43d4c9bd235e1"
   },
