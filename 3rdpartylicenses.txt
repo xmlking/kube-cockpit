@@ -1,4 +1,4 @@
-@angular/material@6.1.0
+@angular/material@6.2.0
 MIT
 The MIT License
 
@@ -22,7 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-moment@2.22.1
+moment@2.22.2
 MIT
 Copyright (c) JS Foundation and other contributors
 
@@ -251,7 +251,7 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
-@angular/cdk@6.1.0
+@angular/cdk@6.2.0
 MIT
 The MIT License
 
@@ -299,7 +299,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/material-moment-adapter@6.1.0
+@angular/material-moment-adapter@6.2.0
 MIT
 The MIT License
 
@@ -371,7 +371,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-filepond@1.5.3
+filepond@1.7.1
 MIT
 MIT License
 
@@ -672,7 +672,7 @@ THE SOFTWARE.
 MIT
 MIT
 
-tslib@1.9.1
+tslib@1.9.2
 Apache-2.0
 Apache License
 
