@@ -1098,10 +1098,10 @@ MIT
 MIT
 MIT
 
-@ngxs/store@3.0.1
+angular-oauth2-oidc@4.0.2
 MIT
 MIT
 
-angular-oauth2-oidc@4.0.2
+@ngxs/store@3.0.1
 MIT
 MIT
