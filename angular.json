@@ -84,7 +84,7 @@
                   "with": "apps/webapp/src/environments/environment.mock.ts"
                 }
               ],
-              "baseHref": "/ngx-starter-kit/",
+              "baseHref": "/kube-cockpit/",
               "optimization": true,
               "outputHashing": "media",
               "sourceMap": false,

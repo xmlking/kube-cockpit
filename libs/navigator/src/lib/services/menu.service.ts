@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { MenuItem } from '../models/menu-item.model';
 
-import { Tree } from '@ngx-starter-kit/tree';
+import { Tree } from '@kube-cockpit/tree';
 import { NavigationEnd, Router } from '@angular/router';
 import { MediaQueryService } from '@default/core';
 import { SidenavState } from './sidenav-state.enum';

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@ngx-starter-kit/material';
-import { MaterialDateModule } from '@ngx-starter-kit/material';
-import { BreadcrumbsModule } from '@ngx-starter-kit/breadcrumbs';
+import { MaterialModule } from '@kube-cockpit/material';
+import { MaterialDateModule } from '@kube-cockpit/material';
+import { BreadcrumbsModule } from '@kube-cockpit/breadcrumbs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MinValidatorDirective } from './directives/min/min.directive';

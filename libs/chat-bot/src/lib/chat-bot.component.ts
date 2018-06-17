@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/co
 import { fromEvent, Observable } from 'rxjs';
 import { ChatBotService, Message } from './chat-bot.service';
 import { filter, scan, take, takeUntil } from 'rxjs/operators';
-import { scrollFabAnimation } from '@ngx-starter-kit/animations';
+import { scrollFabAnimation } from '@kube-cockpit/animations';
 
 @Component({
   selector: 'ngx-chatbot',

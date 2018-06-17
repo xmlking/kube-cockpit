@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MomentModule } from 'ngx-moment';
 
-import { SharedModule } from '@ngx-starter-kit/shared';
-import { AppConfirmModule } from '@ngx-starter-kit/app-confirm';
-import { DraggableModule } from '@ngx-starter-kit/draggable';
-import { NgxPipesModule } from '@ngx-starter-kit/ngx-pipes';
+import { SharedModule } from '@kube-cockpit/shared';
+import { AppConfirmModule } from '@kube-cockpit/app-confirm';
+import { DraggableModule } from '@kube-cockpit/draggable';
+import { NgxPipesModule } from '@kube-cockpit/ngx-pipes';
 
 import { AccountsGridListComponent } from './containers/accounts-grid-list/accounts-grid-list.component';
 import { AccountsTableComponent } from './containers/accounts-table/accounts-table.component';

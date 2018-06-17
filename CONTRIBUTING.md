@@ -1,4 +1,4 @@
-# Contributing to NX Starter Kit
+# Contributing to Kube Cockpit
 
 We would love for you to contribute to starter project and help make it even better than it is
 today! As a contributor, here are the guidelines we would like you to follow:
@@ -40,7 +40,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git push origin my-fix-branch
     ```
 
-* In GitHub, send a pull request to `ngx-starter-kit:master`.
+* In GitHub, send a pull request to `kube-cockpit:master`.
 * If we suggest changes then:
   * Make the required updates.
   * Re-run the Angular CLI test suites to ensure tests are still passing.
@@ -145,9 +145,9 @@ The version in our package.json gets copied to the one we publish, and users nee
 ```
 
 
-[GitHub]: https://github.com/xmlking/ngx-starter-kit
-[gitter]: https://gitter.im/xmlking/ngx-starter-kit
-[issues]: https://github.com/xmlking/ngx-starter-kit/issues
-[pulls]: https://github.com/xmlking/ngx-starter-kit/pulls
+[GitHub]: https://github.com/xmlking/kube-cockpit
+[gitter]: https://gitter.im/xmlking/kube-cockpit
+[issues]: https://github.com/xmlking/kube-cockpit/issues
+[pulls]: https://github.com/xmlking/kube-cockpit/pulls
 
 [js-style-guide]: https://google.github.io/styleguide/jsguide.html

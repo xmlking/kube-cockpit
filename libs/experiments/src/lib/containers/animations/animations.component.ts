@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cardAnimation } from '@ngx-starter-kit/animations';
+import { cardAnimation } from '@kube-cockpit/animations';
 import { List } from 'immutable';
 
 @Component({

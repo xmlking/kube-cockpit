@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@ngx-starter-kit/shared';
-import {ScrollbarModule} from "@ngx-starter-kit/scrollbar";
-import {LoadingOverlayModule} from "@ngx-starter-kit/loading-overlay";
+import { SharedModule } from '@kube-cockpit/shared';
+import {ScrollbarModule} from "@kube-cockpit/scrollbar";
+import {LoadingOverlayModule} from "@kube-cockpit/loading-overlay";
 
 import {
   ChartWidget,

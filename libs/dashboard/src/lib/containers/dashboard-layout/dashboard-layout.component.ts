@@ -13,7 +13,7 @@ import {
 import { Subscription } from 'rxjs';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 import { Router, NavigationEnd } from '@angular/router';
-import { routeAnimation } from '@ngx-starter-kit/animations';
+import { routeAnimation } from '@kube-cockpit/animations';
 
 @Component({
   selector: 'ngx-dashboard-layout',

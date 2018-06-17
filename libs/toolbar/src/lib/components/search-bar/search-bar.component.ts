@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { MenuItem, MenuService } from '@ngx-starter-kit/navigator';
+import { MenuItem, MenuService } from '@kube-cockpit/navigator';
 
 @Component({
   selector: 'ngx-search-bar',

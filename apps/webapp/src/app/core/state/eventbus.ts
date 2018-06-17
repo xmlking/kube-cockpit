@@ -5,7 +5,7 @@ import {
   ofActionDispatched
 } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { Login } from '@ngx-starter-kit/auth';
+import { Login } from '@kube-cockpit/auth';
 
 @Injectable({
   providedIn: 'root'

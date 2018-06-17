@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { Account, Address, Gender } from '../../models/account.model';
 import { AccountService } from '../../services/account.service';
-import { EntitiesComponent, EntityColumnDef } from '@ngx-starter-kit/shared';
-import { AppConfirmService } from '@ngx-starter-kit/app-confirm';
+import { EntitiesComponent, EntityColumnDef } from '@kube-cockpit/shared';
+import { AppConfirmService } from '@kube-cockpit/app-confirm';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { catchError, tap, concatMap, filter, map, mergeMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { SharedModule } from "@ngx-starter-kit/shared";
-import { ThemePickerModule } from '@ngx-starter-kit/theme-picker';
+import { SharedModule } from "@kube-cockpit/shared";
+import { ThemePickerModule } from '@kube-cockpit/theme-picker';
 
 import { ToolbarComponent } from './toolbar.component';
 import { SearchComponent } from './components/search/search.component';

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@ngx-starter-kit/shared';
+import { SharedModule } from '@kube-cockpit/shared';
 
-import { AuthGuard } from '@ngx-starter-kit/auth';
-import { ChatBotModule } from '@ngx-starter-kit/chat-bot';
+import { AuthGuard } from '@kube-cockpit/auth';
+import { ChatBotModule } from '@kube-cockpit/chat-bot';
 
 import { DashboardLayoutComponent } from './containers/dashboard-layout/dashboard-layout.component';
 import { OverviewComponent } from './containers/overview/overview.component';
 import { RainbowComponent } from './components/rainbow/rainbow.component';
-import { QuickpanelModule } from '@ngx-starter-kit/quickpanel';
-import { ToolbarModule } from '@ngx-starter-kit/toolbar';
-import { SidenavModule } from '@ngx-starter-kit/sidenav';
+import { QuickpanelModule } from '@kube-cockpit/quickpanel';
+import { ToolbarModule } from '@kube-cockpit/toolbar';
+import { SidenavModule } from '@kube-cockpit/sidenav';
 
 @NgModule({
   imports: [
@@ -34,17 +34,17 @@ import { SidenavModule } from '@ngx-starter-kit/sidenav';
           },
           {
             path: '',
-            loadChildren: '@ngx-starter-kit/widgets#WidgetsModule',
+            loadChildren: '@kube-cockpit/widgets#WidgetsModule',
             data: { animation: 'overview' }
           },
           {
             path: 'grid',
-            loadChildren: '@ngx-starter-kit/grid#GridModule',
+            loadChildren: '@kube-cockpit/grid#GridModule',
             data: { animation: 'grid' }
           },
           {
             path: 'experiments',
-            loadChildren: '@ngx-starter-kit/experiments#ExperimentsModule',
+            loadChildren: '@kube-cockpit/experiments#ExperimentsModule',
             data: { animation: 'experiments' }
           }
         ]

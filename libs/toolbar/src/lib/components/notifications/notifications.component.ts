@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { listFadeAnimation } from "@ngx-starter-kit/animations";
+import { listFadeAnimation } from "@kube-cockpit/animations";
 
 @Component({
   selector: 'ngx-notifications',

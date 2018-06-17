@@ -15,7 +15,7 @@ npm install -g @nestjs/cli
 ```bash
 nest new api
 
-cd ngx-starter-kit
+cd kube-cockpit
 npm i @nestjs/core @nestjs/common 
 npm i @nestjs/microservices @nestjs/websockets @nestjs/testing @nestjs/typeorm typeorm
 npm i -D @nestjs/schematics
@@ -32,7 +32,7 @@ nest info
 > adding 3rd party modules/libs
 
 ```bash
-cd ngx-starter-kit
+cd kube-cockpit
 
 ```
  

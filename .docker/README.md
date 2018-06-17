@@ -17,12 +17,12 @@ docker push xmlking/openshift-nginx:latest
 ### Build
 ```bash
 # build app docker image
-docker build --tag=ngx-starter-kit -f .docker/prod.dockerfile . 
+docker build --tag=kube-cockpit -f .docker/prod.dockerfile . 
 ```
 
 ### Run
 ```bash
-docker run -it --env AUTH_BASE_URL=http://keycloak:8080 -p 80:8080  ngx-starter-kit
+docker run -it --env AUTH_BASE_URL=http://keycloak:8080 -p 80:8080  kube-cockpit
 ```
 
 The app will be available at http://localhost:80
@@ -41,13 +41,13 @@ docker-compose exec web sh
 
 #### Docker Push
 ```bash 
-# docker tag ngx-starter-kit myRegistry.com/myImage`
-docker tag ngx-starter-kit xmlking/ngx-starter-kit:0.1.2-SNAPSHOT
-docker push xmlking/ngx-starter-kit:0.1.2-SNAPSHOT
+# docker tag kube-cockpit myRegistry.com/myImage`
+docker tag kube-cockpit xmlking/kube-cockpit:0.1.2-SNAPSHOT
+docker push xmlking/kube-cockpit:0.1.2-SNAPSHOT
 
 # also tag `latest` and push
-docker tag xmlking/ngx-starter-kit:0.1.2-SNAPSHOT  xmlking/ngx-starter-kit:latest
-docker push xmlking/ngx-starter-kit:latest
+docker tag xmlking/kube-cockpit:0.1.2-SNAPSHOT  xmlking/kube-cockpit:latest
+docker push xmlking/kube-cockpit:latest
 ```
 
 ###Maintenance

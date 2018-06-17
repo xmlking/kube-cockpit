@@ -69,12 +69,12 @@ for nx help `npm run help`
 #### Create Workspace
 ```bash
 # create workspace Ref: https://nrwl.io/nx/guide-nx-workspace
-create-nx-workspace  ngx-starter-kit --prefix=ngx
+create-nx-workspace  kube-cockpit --prefix=ngx
 # or
-ng new ngx-starter-kit --collection=@nrwl/schematics --prefix=ngx --verbose
+ng new kube-cockpit --collection=@nrwl/schematics --prefix=ngx --verbose
 # or if you want *bazel* builds instead of *webpack*
-ng new ngx-starter-kit --collection=@nrwl/schematics --prefix=ngx --bazel  --verbose
-cd ngx-starter-kit
+ng new kube-cockpit --collection=@nrwl/schematics --prefix=ngx --bazel  --verbose
+cd kube-cockpit
 
 > remove all ngrx NPM pagages from package.json
 
@@ -92,7 +92,7 @@ ng g app webapp --routing --style=scss --prefix=ngx --tags=app-module
 #### Dependencies
 > adding 3rd party modules/libs
 ```bash
-cd ngx-starter-kit
+cd kube-cockpit
 
 # Add PWA
 ng add @angular/pwa --project webapp
@@ -386,7 +386,7 @@ npx compodoc -s -d docs
 > deploy demo to gh-pages
 ```bash
 # build for gh-pages
-build:mock --base-href /ngx-starter-kit/
+build:mock --base-href /kube-cockpit/
 # push gh-pages
 npx ngh --dir dist/apps/webapp
 ```

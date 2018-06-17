@@ -25,9 +25,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     RouterModule.forRoot(
       [
         {path: '', redirectTo: 'home', pathMatch: 'full'},
-        {path: 'home', loadChildren: '@ngx-starter-kit/home#HomeModule'},
-        {path: 'dashboard', loadChildren: '@ngx-starter-kit/dashboard#DashboardModule'},
-        {path: '404', loadChildren: '@ngx-starter-kit/not-found#NotFoundModule'},
+        {path: 'home', loadChildren: '@kube-cockpit/home#HomeModule'},
+        {path: 'dashboard', loadChildren: '@kube-cockpit/dashboard#DashboardModule'},
+        {path: '404', loadChildren: '@kube-cockpit/not-found#NotFoundModule'},
         // 404 should be last
         {path: '**', redirectTo: '404', pathMatch: 'full'}
       ],

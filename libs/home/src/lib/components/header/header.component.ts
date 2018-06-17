@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { Login, Logout } from '@ngx-starter-kit/auth';
-import { AuthState } from '@ngx-starter-kit/auth';
+import { Login, Logout } from '@kube-cockpit/auth';
+import { AuthState } from '@kube-cockpit/auth';
 
 @Component({
   selector: 'ngx-home-header',
