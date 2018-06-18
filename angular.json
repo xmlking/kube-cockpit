@@ -1238,6 +1238,34 @@
           }
         }
       }
+    },
+    "namespace": {
+      "root": "libs/namespace",
+      "sourceRoot": "libs/namespace/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/namespace/src/test.ts",
+            "tsConfig": "libs/namespace/tsconfig.spec.json",
+            "karmaConfig": "libs/namespace/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/namespace/tsconfig.lib.json",
+              "libs/namespace/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "schematics": {

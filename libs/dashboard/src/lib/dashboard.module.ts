@@ -46,6 +46,11 @@ import { SidenavModule } from '@kube-cockpit/sidenav';
             path: 'experiments',
             loadChildren: '@kube-cockpit/experiments#ExperimentsModule',
             data: { animation: 'experiments' }
+          },
+          {
+            path: 'namespace',
+            loadChildren: '@kube-cockpit/namespace#NamespaceModule',
+            data: { animation: 'namespace' }
           }
         ]
       }

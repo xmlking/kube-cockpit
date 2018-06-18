@@ -120,6 +120,12 @@
       ],
       "@kube-cockpit/defer-load": [
         "libs/defer-load/src/index.ts"
+      ],
+      "namespace/*": [
+        "dist/namespace/*"
+      ],
+      "@kube-cockpit/namespace": [
+        "libs/namespace/src/index.ts"
       ]
     }
   },

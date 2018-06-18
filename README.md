@@ -1,5 +1,5 @@
-Kube Cockpit
-============
+Kubernetes Cockpit
+==================
 A Multi-tenant UI for kubernetes
 
 ### Goals
@@ -11,6 +11,11 @@ A Multi-tenant UI for kubernetes
 * List/Create/Update/Delete kubernetes resources
 * Manage local [RBAC roles](https://github.com/kubernetes/dashboard/blob/master/docs/design/access-control.md)
 * Metering and Billing
+* Helm Charts Catalog
+  * List, search charts
+  * Install charts to the cluster
+  * Add and manage chart repositories
+
 
 #### Admin Dashboard
 * Provision Namespaces
@@ -24,6 +29,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 Run `npm run start:mock` for a mock server.
 
+> expose local k8s API `kubectl proxy`
 Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
 
 #### Build
@@ -66,3 +72,9 @@ Analyzing bundle size `npm run bundle-report`
     * https://github.com/ElasticBox/elastickube
 7. **gangway**
     * https://github.com/heptiolabs/gangway
+8. **Helm Catalog**
+    * https://github.com/cnpst/zcp-catalog-ui
+    * https://github.com/kubernetes-helm/monocular
+    * https://github.com/kubeapps/hub https://hub.kubeapps.com/
+9. **hsd-devops** - kubernetes dashboard with angular
+    * https://github.com/getfirstcn/hsd-devops

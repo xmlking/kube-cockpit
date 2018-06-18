@@ -169,7 +169,8 @@ ng g lib NotFound       --routing --lazy --prefix=ngx --parent-module=apps/webap
 ng g lib experiments    --routing --lazy --prefix=ngx --parent-module=libs/dashboard/src/lib/dashboard.module.ts   --tags=child-module
 ng g lib widgets        --routing --lazy --prefix=ngx --parent-module=libs/dashboard/src/lib/dashboard.module.ts   --tags=child-module
 ng g lib grid           --routing --lazy --prefix=ngx --parent-module=libs/dashboard/src/lib/dashboard.module.ts   --tags=child-module
-
+ng g lib namespace      --routing --lazy --prefix=ngx --parent-module=libs/dashboard/src/lib/dashboard.module.ts   --tags=child-module
+ng g lib node           --routing --lazy --prefix=ngx --parent-module=libs/dashboard/src/lib/dashboard.module.ts   --tags=child-module
 
 ng g lib material --spec=false --tags=shared-module --dry-run
 ng g lib animations --nomodule -tags=utils --dry-run 
@@ -327,6 +328,12 @@ ng g component containers/FileUpload --project=experiments --dry-run
 ng g component components/hammerCard --project=experiments --dry-run
 ng g directive components/Hammertime/Hammertime --project=experiments --dry-run
 ng g component containers/virtualScroll --project=experiments --dry-run
+
+# generate containers, components for `namespace` Module
+ng g component  containers/namespace            --project=namespace --module=namespace --dry-run
+ng g component  components/namespaceDetail      --project=namespace --module=namespace --dry-run
+ng g class      models/namespace --type=model   --project=namespace --module=namespace --dry-run
+ng g service    services/namespace              --project=namespace --module=namespace --dry-run
 ```
 
 ### Install

@@ -1,0 +1,29 @@
+<mat-card class="deployment-detail-card">
+  <mat-card-header>
+    <div mat-card-avatar class="deployment-detail-header-image"></div>
+    <mat-card-title><h3>Service</h3></mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item>
+        <div>
+          <span>name：</span><span>{{ namespace?.metadata.name }}</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <div>
+          <span>Status：</span><span>{{ namespace?.status.phase }}</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <div>
+          <span>Creation time：</span><span>{{ namespace?.metadata.creationTimestamp | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+
+<!--<nax-pod-with-label  [namespace]="namespace.metadata.name"></nax-pod-with-label>-->

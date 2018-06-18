@@ -11,6 +11,11 @@ export const defaultMenu: MenuItem[] = [
     icon: 'dashboard',
     link: '/dashboard'
   },
+  {
+    name: 'Namespace',
+    icon: 'dashboard',
+    link: '/dashboard/namespace'
+  },
   // {
   //   name: 'Custom components',
   //   type: SidenavItemType.Separator,
