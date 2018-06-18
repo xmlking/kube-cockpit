@@ -30,7 +30,7 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 Run `npm run start:mock` for a mock server.
 
-Expose k8s API on localhost with (kubectl proxy)[https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_proxy/]
+Expose k8s API on localhost with [kubectl proxy](https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_proxy/)
 ```bash
 kubectl proxy --api-prefix=/k8s
 # test API
@@ -42,7 +42,7 @@ Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
 
 Run `npm run build:prod` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-to serve built files and proxy to k8s API
+To serve built files and proxy k8s API run:
 ```bash
 kubectl proxy --port=4200 --www=./dist/apps/webapp --www-prefix=/ --api-prefix=/k8s
 ```
