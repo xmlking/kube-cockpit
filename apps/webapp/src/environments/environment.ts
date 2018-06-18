@@ -9,6 +9,7 @@ export const environment = {
   envName: 'dev',
 
   API_BASE_URL: 'http://localhost:3000/api',
+  K8S_API_BASE_URL: '/k8s',
   auth: {
     // clientId: 'kube-tenant',
     // issuer: 'http://localhost:9080/auth/realms/kubernetes'

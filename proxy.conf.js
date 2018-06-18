@@ -11,11 +11,11 @@ const PROXY_CONFIG = {
     "logLevel": "debug",
     "changeOrigin": true
   },
-  "/myapi": {
+  "/api": {
     "target": "http://localhost:3000",
     "secure": false
   },
-  "/api": {
+  "/k8s": {
     "target": "http://localhost:8001",
     "secure": false
   }

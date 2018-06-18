@@ -3,24 +3,25 @@ Kubernetes Cockpit
 A Multi-tenant UI for kubernetes
 
 ### Goals
-
 * Single sign-on, Single sign-out
 * Account Management
-  * Profile, Settings, Delegations
-#### Tenant Dashboard
+  * Profile, Settings, Delegations 
+
+#### Tenant Dashboard Goals
 * List/Create/Update/Delete kubernetes resources
 * Manage local [RBAC roles](https://github.com/kubernetes/dashboard/blob/master/docs/design/access-control.md)
 * Metering and Billing
-* Helm Charts Catalog
+  * Usage Metrics / Reports
+* Helm Charts [AppStore](https://hub.kubeapps.com/)
   * List, search charts
   * Install charts to the cluster
   * Add and manage chart repositories
 
-
-#### Admin Dashboard
+#### Admin Dashboard Goals
 * Provision Namespaces
 * User Provisioning with RBAC roles
 * Manage cluster and namespace level RBAC roles
+
 
 ### Development
 #### Run
@@ -29,12 +30,22 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 Run `npm run start:mock` for a mock server.
 
-> expose local k8s API `kubectl proxy`
+Expose k8s API on localhost with (kubectl proxy)[https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_proxy/]
+```bash
+kubectl proxy --api-prefix=/k8s
+# test API
+curl http://localhost:8001/k8s/api/v1/namespaces
+```
 Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
 
 #### Build
 
 Run `npm run build:prod` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+to serve built files and proxy to k8s API
+```bash
+kubectl proxy --port=4200 --www=./dist/apps/webapp --www-prefix=/ --api-prefix=/k8s
+```
 
 #### Running unit tests
 
