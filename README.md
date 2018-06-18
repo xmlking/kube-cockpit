@@ -42,7 +42,7 @@ Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
 
 Run `npm run build:prod` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-To serve built files and proxy k8s API run:
+To serve built files and proxy k8s API together, run:
 ```bash
 kubectl proxy --port=4200 --www=./dist/apps/webapp --www-prefix=/ --api-prefix=/k8s
 ```
