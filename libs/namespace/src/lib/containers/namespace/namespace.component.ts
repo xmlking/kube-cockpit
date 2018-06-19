@@ -1,44 +1,80 @@
-
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
-// import {Element} from '../service/service.component';
-import {Router} from '@angular/router';
+import { MatDialog, MatSnackBar } from '@angular/material';
+
 import {NamespaceService} from '../../services/namespace.service';
+import { V1Namespace, V1NamespaceList } from '@kube-cockpit/k8s';
+import { EntitiesComponent, EntityColumnDef } from '@kube-cockpit/shared';
+import { AppConfirmService } from '@kube-cockpit/app-confirm';
+import { catchError, filter, mergeMap, tap } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import * as moment from 'moment';
+import { List } from 'immutable';
+import { Store } from '@ngxs/store';
+import { Navigate } from '@ngxs/router-plugin';
+
 
 @Component({
   selector: 'ngx-namespace',
-  templateUrl: './namespace.component.html',
-  styleUrls: ['./namespace.component.scss'],
-  providers: [NamespaceService]
+  templateUrl: '../../../../../shared/src/lib/containers/entity/entity.component.html',
+  styleUrls: ['../../../../../shared/src/lib/containers/entity/entity.component.scss']
 })
-export class NamespaceComponent implements OnInit {
-  displayedColumns = ['name', 'status', 'createDate'];
-  TABLE: any;
-  dataSource = new MatTableDataSource<Element>(this.TABLE);
+export class NamespaceComponent extends EntitiesComponent<V1Namespace, NamespaceService> {
+  crumbs = List([
+    { name: 'Dashboard', link: '/dashboard' },
+    // { name: 'Namespace', link: '/dashboard/namespace' },
+    { name: 'Namespace' }
+  ]);
 
-  constructor(private router: Router,
-              private ns: NamespaceService) { }
+  readonly columns = [
+    // prettier-ignore
+    new EntityColumnDef<V1Namespace>({ property: 'uid',  header: 'No.',    displayFn: (entity) => `${entity.metadata.uid}` }),
+    // prettier-ignore,
+    new EntityColumnDef<V1Namespace>({ property: 'name', header: 'Name', displayFn: entity => `${entity.metadata.name}` }),
+    // prettier-ignore,
+    new EntityColumnDef<V1Namespace>({ property: 'resourceVersion', header: 'Version', displayFn: entity => `${entity.metadata.resourceVersion}` }),
+    // prettier-ignore,
+    new EntityColumnDef<V1Namespace>({ property: 'selfLink',    header: 'Link',   displayFn: (entity) => `${entity.metadata.selfLink} `, visible: false  }),
+    // prettier-ignore
+    new EntityColumnDef<V1Namespace>({ property: 'creationTimestamp',     header: 'Created At',    displayFn: (entity) => `${moment(entity.metadata.creationTimestamp).format('LL')}` }),
+    // prettier-ignore,
+    new EntityColumnDef<V1Namespace>({ property: 'status', header: 'Status', displayFn: entity => `${entity.status.phase}` })
+  ] as EntityColumnDef<V1Namespace>[];
 
-  ngOnInit() {
-    this.ns.getNamepaceList()
-      .subscribe(data => {
-        this.dataSource = data.items;
-        console.log(data);
-      });
+  // optional
+  readonly showActionColumn = true;
+  readonly showColumnFilter = true;
+  readonly showToolbar = true;
+
+  constructor(
+    namespaceService: NamespaceService,
+    private store: Store,
+    private dialog: MatDialog,
+    private snack: MatSnackBar,
+    private confirmService: AppConfirmService
+  ) {
+    super(namespaceService);
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+  // optional
+  delete(item: V1Namespace) {
+    return this.confirmService.confirm('Confirm', `Delete ${item.metadata.name} ?`).pipe(
+      filter(confirmed => confirmed === true),
+      mergeMap(_ => super.delete(item)),
+      tap(_ => this.snack.open('Namespace Deleted!', 'OK', { duration: 5000 })),
+      catchError(error => {
+        this.snack.open(error, 'OK', { duration: 10000 });
+        return throwError('Ignore Me!');
+      })
+    );
   }
 
-  deleteNamespace(name: string) {
+  // required to override
+  getNewEntity(): V1Namespace {
+    const entity = new V1Namespace();
+    return entity;
   }
 
-}
-export interface Element {
-  name: string;
-  status: string;
-  createDate: string;
+  showDetails(entity: V1Namespace) {
+    this.store.dispatch(new Navigate([`/dashboard/namespace/${entity.id}`]))
+  }
 }

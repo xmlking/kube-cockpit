@@ -33,8 +33,9 @@ Run `npm run start:mock` for a mock server.
 Expose k8s API on localhost with [kubectl proxy](https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_proxy/)
 ```bash
 kubectl proxy --api-prefix=/k8s
-# test API
+# test and make sure k8s proxy is working.
 curl http://localhost:8001/k8s/api/v1/namespaces
+curl http://localhost:8001/k8s/api/v1/namespaces/kube-system/pods
 ```
 Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
 

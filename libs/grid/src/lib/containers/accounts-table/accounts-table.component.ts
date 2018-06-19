@@ -8,9 +8,11 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { catchError, tap, concatMap, filter, map, mergeMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-import { AccountComponent } from '../../components/account/account.component';
+import { AccountEditComponent } from '../../components/account-edit/account-edit.component';
 import * as moment from 'moment';
 import { List } from 'immutable';
+import { Navigate } from '@ngxs/router-plugin';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'ngx-accounts-table',
@@ -42,10 +44,11 @@ export class AccountsTableComponent extends EntitiesComponent<Account, AccountSe
   readonly showColumnFilter = true;
   readonly showToolbar = true;
 
-  readonly formRef = AccountComponent;
+  readonly formRef = AccountEditComponent;
 
   constructor(
     accountService: AccountService,
+    private store: Store,
     private dialog: MatDialog,
     private snack: MatSnackBar,
     private confirmService: AppConfirmService
@@ -58,7 +61,10 @@ export class AccountsTableComponent extends EntitiesComponent<Account, AccountSe
     return this.confirmService.confirm('Confirm', `Delete ${item.first_name} ${item.last_name}?`).pipe(
       filter(confirmed => confirmed === true),
       mergeMap(_ => super.delete(item)),
-      tap(_ => this.snack.open('Member Deleted!', 'OK', { duration: 5000 })),
+      tap(_ => {
+        this.snack.open('Member Deleted!', 'OK', { duration: 5000 });
+        this.store.dispatch(new Navigate([`/dashboard/grid/crud-table`]));
+      }),
       catchError(error => {
         this.snack.open(error, 'OK', { duration: 10000 });
         return throwError('Ignore Me!');
@@ -71,6 +77,11 @@ export class AccountsTableComponent extends EntitiesComponent<Account, AccountSe
     const entity = new Account();
     entity.address = new Address();
     return entity;
+  }
+
+  // optional
+  showDetails(entity: Account) {
+    this.store.dispatch(new Navigate([`/dashboard/grid/crud-table/${entity.id}`]))
   }
 
   // filterPredicate(entity: Account, _filter: string): boolean  {
@@ -108,7 +119,10 @@ export class AccountsTableComponent extends EntitiesComponent<Account, AccountSe
         concatMap((res: Account) => super.updateOrCreate(res, isNew))
       )
       .subscribe(
-        _ => this.snack.open(isNew ? 'Member Created!' : 'Member Updated!', 'OK', { duration: 5000 }),
+        _ => {
+          this.snack.open(isNew ? 'Member Created!' : 'Member Updated!', 'OK', { duration: 5000 })
+          this.store.dispatch(new Navigate([`/dashboard/grid/crud-table`]))
+        },
         error => this.snack.open(error, 'OK', { duration: 10000 })
       );
   }

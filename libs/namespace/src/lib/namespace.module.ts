@@ -3,11 +3,19 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@kube-cockpit/shared';
 import { NamespaceComponent } from './containers/namespace/namespace.component';
 import { NamespaceDetailComponent } from './components/namespace-detail/namespace-detail.component';
+import { NamespaceService } from './services/namespace.service';
+import { AppConfirmModule } from '@kube-cockpit/app-confirm';
+import { DraggableModule } from '@kube-cockpit/draggable';
+import { NgxPipesModule } from '@kube-cockpit/ngx-pipes';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   imports: [
     SharedModule,
-
+    DraggableModule,
+    AppConfirmModule,
+    NgxPipesModule,
+    MomentModule,
     RouterModule.forChild([
       /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
       {
@@ -16,11 +24,10 @@ import { NamespaceDetailComponent } from './components/namespace-detail/namespac
           { path: ':name', component: NamespaceDetailComponent },
         ],
       },
-      //
-      // { path: ':name', component: NamespaceDetailComponent, data: { animation: 'namespace-detail' } },
     ]),
   ],
   declarations: [NamespaceComponent, NamespaceDetailComponent],
+  providers: [NamespaceService]
 })
 export class NamespaceModule {
 }

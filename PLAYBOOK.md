@@ -182,6 +182,7 @@ ng g lib material --spec=false --tags=shared-module --dry-run
 ng g lib animations --nomodule -tags=utils --dry-run 
 ng g lib Tree --nomodule  --publishable=true --tags=utils --dry-run
 ng g lib utils --nomodule --tags=utils --dry-run
+ng g lib k8s --nomodule --publishable=true --tags=utils --skip-package-json --dry-run 
 
 # add `shared` module which will encapsulate angular and 3rd party modules, needed for all `Lazy-loaded Feature Modules`  
 ng g lib shared --prefix=ngx --tags=shared-module 
@@ -322,7 +323,8 @@ ng g component containers/wizdash --project=widgets --dry-run
 
 # generate containers, components for `grid` Module
 ng g component  containers/AccountsTable --project=grid --module=grid --dry-run
-ng g component  components/Account --project=grid --module=grid --dry-run
+ng g component  components/AccountDetail --project=grid --module=grid --dry-run
+ng g component  components/AccountEdit --project=grid --module=grid --dry-run
 ng g class      models/account --type=model --project=grid --module=grid --dry-run
 ng g service    services/account --project=grid --module=grid --dry-run
 ng g component  containers/AccountsGridList --project=grid --module=grid --dry-run

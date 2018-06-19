@@ -126,6 +126,12 @@
       ],
       "@kube-cockpit/namespace": [
         "libs/namespace/src/index.ts"
+      ],
+      "k8s/*": [
+        "dist/k8s/*"
+      ],
+      "@kube-cockpit/k8s": [
+        "libs/k8s/src/index.ts"
       ]
     }
   },

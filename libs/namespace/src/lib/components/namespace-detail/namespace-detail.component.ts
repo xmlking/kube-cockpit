@@ -1,26 +1,25 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {Namespace} from '../../models/namespace.model';
-import {NamespaceService} from '../../services/namespace.service';
-import {ActivatedRoute} from '@angular/router';
+import { NamespaceService } from '../../services/namespace.service';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { V1Namespace } from '@kube-cockpit/k8s';
 
 @Component({
   selector: 'ngx-namespace-detail',
   templateUrl: './namespace-detail.component.html',
-  styleUrls: ['./namespace-detail.component.scss'],
-  providers: [NamespaceService]
+  styleUrls: ['./namespace-detail.component.scss']
 })
 export class NamespaceDetailComponent implements OnInit, OnDestroy {
-  namespace: Namespace;
+  namespace: V1Namespace;
   sub: Subscription;
 
-  constructor(private ns: NamespaceService,
+  constructor(private namespaceService: NamespaceService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.ns.getNamespace(params['name']).subscribe(data => {
+      this.namespaceService.getById(params['name']).subscribe(data => {
         this.namespace = data;
       });
     });

@@ -1266,6 +1266,46 @@
           }
         }
       }
+    },
+    "k8s": {
+      "root": "libs/k8s",
+      "sourceRoot": "libs/k8s/src",
+      "projectType": "library",
+      "prefix": "kube-cockpit",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/k8s/tsconfig.lib.json",
+            "project": "libs/k8s/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "libs/k8s/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/k8s/src/test.ts",
+            "tsConfig": "libs/k8s/tsconfig.spec.json",
+            "karmaConfig": "libs/k8s/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/k8s/tsconfig.lib.json",
+              "libs/k8s/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "schematics": {

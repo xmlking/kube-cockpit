@@ -1,31 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {catchError, map, retry, tap} from 'rxjs/operators';
-import {Observable} from 'rxjs/Observable';
-import {Namespace, NamespaceList} from '../models/namespace.model';
-import {of} from 'rxjs/observable/of';
-import {Subject} from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http';
+import { V1Namespace, V1NamespaceList }   from '@kube-cockpit/k8s';
+import { Subject } from 'rxjs/Subject';
 import { environment } from '@env/environment';
+import { EntityService } from '@kube-cockpit/shared';
+import { map, catchError, finalize, retry, delay } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
 @Injectable()
-export class NamespaceService {
-  public k8sBaseUrl = environment.K8S_API_BASE_URL;
+export class NamespaceService extends EntityService<V1Namespace> {
+  public baseUrl = environment.K8S_API_BASE_URL;
   globalNamespace = 'all';
+  readonly entityPath = '/api/v1/namespaces';
   namespace: Subject<string> = new Subject<string>();
-  constructor(private http: HttpClient) { }
-  getNamepaceList(): Observable<any> {
-    return this.http.get<Namespace>(`${this.k8sBaseUrl}/api/v1/namespaces`)
-      .pipe(
-        tap(data => data.items)
-      );
+  constructor(httpClient: HttpClient) {
+    super(httpClient);
   }
-  getNamespace(name: string): Observable<Namespace> {
-    return this.http.get<Namespace>(`${this.k8sBaseUrl}/api/v1/namespaces/${name}`);
+
+  getAll(): Observable<V1Namespace[]> {
+    this.loadingSubject.next(true);
+    return this.httpClient.get<V1NamespaceList>(`${this.baseUrl}/${this.entityPath}`).pipe(
+      retry(3), // retry a failed request up to 3 times
+      catchError(this.handleError),
+      finalize(() => this.loadingSubject.next(false)),
+      map(data => data.items.map(v => new V1Namespace(v)))
+    );
   }
-  getGlobalNamespace() {
-    return of(this.globalNamespace);
+
+  delete(id: number | string) {
+    console.log('dont be evil yet...');
+    return  of('Ok').pipe(
+      delay(2000)
+    )
   }
 }

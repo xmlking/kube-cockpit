@@ -139,3 +139,9 @@ curl -X POST  $OIDC_BASE_URL/protocol/openid-connect/logout \
   "email": "sumo@demo.com"
 }
 ```
+
+
+### References
+* Kubernetes Day 2 Operations: AuthN/AuthZ with OIDC and a Little Help From Keycloak
+  * https://medium.com/@mrbobbytables/kubernetes-day-2-operations-authn-authz-with-oidc-and-a-little-help-from-keycloak-de4ea1bdbbe
+* https://github.com/making/k8s-keycloak-oidc-helper/blob/master/k8s-keycloak-oidc-helper.sh

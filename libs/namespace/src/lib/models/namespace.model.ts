@@ -5,7 +5,7 @@ export class Namespace {
     name: string,
     selfLink: string,
     uid: string,
-    resourceVersion: 6,
+    resourceVersion: number,
     creationTimestamp: Date
   };
   spec: {
