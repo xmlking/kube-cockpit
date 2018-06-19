@@ -340,6 +340,7 @@ ng g component containers/virtualScroll --project=experiments --dry-run
 # generate containers, components for `namespace` Module
 ng g component  containers/namespace            --project=namespace --module=namespace --dry-run
 ng g component  components/namespaceDetail      --project=namespace --module=namespace --dry-run
+ng g component  components/namespaceEdit        --project=namespace --module=namespace --dry-run
 ng g class      models/namespace --type=model   --project=namespace --module=namespace --dry-run
 ng g service    services/namespace              --project=namespace --module=namespace --dry-run
 ```

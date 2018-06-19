@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MomentModule } from 'ngx-moment';
 import { SharedModule } from '@kube-cockpit/shared';
-import { NamespaceComponent } from './containers/namespace/namespace.component';
-import { NamespaceDetailComponent } from './components/namespace-detail/namespace-detail.component';
-import { NamespaceService } from './services/namespace.service';
 import { AppConfirmModule } from '@kube-cockpit/app-confirm';
 import { DraggableModule } from '@kube-cockpit/draggable';
 import { NgxPipesModule } from '@kube-cockpit/ngx-pipes';
-import { MomentModule } from 'ngx-moment';
+import { NamespaceComponent } from './containers/namespace/namespace.component';
+import { NamespaceDetailComponent } from './components/namespace-detail/namespace-detail.component';
+import { NamespaceEditComponent } from './components/namespace-edit/namespace-edit.component';
+import { NamespaceService } from './services/namespace.service';
+
 
 @NgModule({
   imports: [
@@ -26,7 +28,8 @@ import { MomentModule } from 'ngx-moment';
       },
     ]),
   ],
-  declarations: [NamespaceComponent, NamespaceDetailComponent],
+  declarations: [NamespaceComponent, NamespaceDetailComponent, NamespaceEditComponent],
+  entryComponents: [NamespaceEditComponent],
   providers: [NamespaceService]
 })
 export class NamespaceModule {

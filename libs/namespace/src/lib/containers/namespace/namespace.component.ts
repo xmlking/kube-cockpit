@@ -5,13 +5,13 @@ import {NamespaceService} from '../../services/namespace.service';
 import { V1Namespace, V1NamespaceList } from '@kube-cockpit/k8s';
 import { EntitiesComponent, EntityColumnDef } from '@kube-cockpit/shared';
 import { AppConfirmService } from '@kube-cockpit/app-confirm';
-import { catchError, filter, mergeMap, tap } from 'rxjs/operators';
+import { catchError, concatMap, filter, map, mergeMap, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import * as moment from 'moment';
 import { List } from 'immutable';
 import { Store } from '@ngxs/store';
 import { Navigate } from '@ngxs/router-plugin';
-
+import { NamespaceEditComponent } from '../../components/namespace-edit/namespace-edit.component';
 
 @Component({
   selector: 'ngx-namespace',
@@ -45,6 +45,8 @@ export class NamespaceComponent extends EntitiesComponent<V1Namespace, Namespace
   readonly showColumnFilter = true;
   readonly showToolbar = true;
 
+  readonly formRef = NamespaceEditComponent;
+
   constructor(
     namespaceService: NamespaceService,
     private store: Store,
@@ -60,7 +62,10 @@ export class NamespaceComponent extends EntitiesComponent<V1Namespace, Namespace
     return this.confirmService.confirm('Confirm', `Delete ${item.metadata.name} ?`).pipe(
       filter(confirmed => confirmed === true),
       mergeMap(_ => super.delete(item)),
-      tap(_ => this.snack.open('Namespace Deleted!', 'OK', { duration: 5000 })),
+      tap(_ => {
+        this.snack.open('Namespace Deleted!', 'OK', { duration: 5000 })
+        this.store.dispatch(new Navigate([`/dashboard/namespace`]));
+      }),
       catchError(error => {
         this.snack.open(error, 'OK', { duration: 10000 });
         return throwError('Ignore Me!');
@@ -68,6 +73,39 @@ export class NamespaceComponent extends EntitiesComponent<V1Namespace, Namespace
     );
   }
 
+  openPopUp(entity: V1Namespace) {
+    let isNew = false;
+    if (!entity) {
+      isNew = true;
+      entity = this.getNewEntity();
+    }
+    const title = isNew ? 'Add Namespace' : 'Update Namespace';
+
+    const dialogRef = this.dialog.open(this.formRef, {
+      width: '720px',
+      disableClose: true,
+      data: { title: title, payload: entity }
+    });
+
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter(res => res !== false),
+        // tap(res => console.log(res)),
+        // map((res: V1Namespace) => {
+        //   if (!isNew) res.id = entity.id;
+        //   return res;
+        // }),
+        concatMap((res: V1Namespace) => super.updateOrCreate(res, isNew))
+      )
+      .subscribe(
+        _ => {
+          this.snack.open(isNew ? 'Namespace Created!' : 'Namespace Updated!', 'OK', { duration: 5000 })
+          this.store.dispatch(new Navigate([`/dashboard/namespace`]))
+        },
+        error => this.snack.open(error, 'OK', { duration: 10000 })
+      );
+  }
   // required to override
   getNewEntity(): V1Namespace {
     const entity = new V1Namespace();
