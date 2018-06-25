@@ -1,0 +1,155 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: keycloak
+  annotations:
+    "openshift.io/display-name": keycloak
+    description: |
+      keycloak with ms ldap
+    iconClass: icon-cogs
+    tags: "oidc,keycloak,ldap"
+
+parameters:
+- description: The namespace to instantiate keycloak under. Defaults to 'kube-system'.
+  name: NAMESPACE
+  required: true
+- description: The location of the keycloak image
+  name: IMAGE_KEYCLOAK
+  value: jboss/keycloak-openshift:4.0.0.Final
+
+objects:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: keycloak-config
+    namespace: "${NAMESPACE}"
+  data:
+    kubernetes-realm.json: |
+
+    kubernetes-users-0.json: |
+
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    labels:
+      app: keycloak
+    name: keycloak-env
+    namespace: "${NAMESPACE}"
+  data:
+    keycloak_user: admin
+    db_vendor: H2
+
+- apiVersion: v1
+  kind: Secret
+  metadata:
+    labels:
+      app: keycloak
+    name: keycloak-secrets
+    namespace: "${NAMESPACE}"
+  stringData:
+    keycloak_password: admin123
+
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app: keycloak
+    name: keycloak
+    namespace: "${NAMESPACE}"
+  spec:
+    to:
+      kind: Service
+      name: keycloak
+    tls:
+      termination: edge
+    port:
+      targetPort: keycloak-http
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: keycloak
+    annotations:
+    name: keycloak
+    namespace: "${NAMESPACE}"
+  spec:
+    ports:
+    - name: keycloak-http
+      port: 9080
+      protocol: TCP
+      targetPort: 9080
+    selector:
+      app: keycloak
+
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: keycloak
+    name: keycloak
+    namespace: "${NAMESPACE}"
+  spec:
+    replicas: 1
+    strategy:
+      type: Rolling
+    selector:
+      app: keycloak
+    template:
+      metadata:
+        labels:
+          app: keycloak
+        name: keycloak
+      spec:
+        containers:
+        - name: keycloak
+          image: ${IMAGE_KEYCLOAK}
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: "400m"
+              memory: "2048Mi"
+          ports:
+          - containerPort: 9080
+            name: keycloak
+          - containerPort: 9443
+            name: keycloak-ssh
+          - containerPort: 10990
+            name: keycloak-other
+          command:
+          - start-keycloak.sh
+          - -b
+          - 0.0.0.0
+          args:
+          - -Dkeycloak.migration.action=import
+          - -Dkeycloak.migration.provider=dir
+          - -Dkeycloak.migration.dir=/opt/jboss/keycloak/realm-config
+          - -Dkeycloak.migration.strategy=OVERWRITE_EXISTING
+          - -Djboss.socket.binding.port-offset=1000
+          env:
+          - name: PROXY_ADDRESS_FORWARDING
+            value: "true"
+          - name: KEYCLOAK_USER
+            valueFrom:
+              configMapKeyRef:
+                name: keycloak-env
+                key: keycloak_user
+          - name: KEYCLOAK_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: keycloak-secrets
+                key: keycloak_password
+          - name: DB_VENDOR
+            valueFrom:
+              configMapKeyRef:
+                name: keycloak-env
+                key: db_vendor
+          volumeMounts:
+          - mountPath: /opt/jboss/keycloak/realm-config
+            name: keycloak-config
+
+        volumes:
+        - name: keycloak-config
+          configMap:
+            defaultMode: 420
+            name: keycloak-config

@@ -24,6 +24,15 @@ A Multi-tenant UI for kubernetes
 
 
 ### Development
+
+#### Install
+
+```bash
+git clone https://github.com/xmlking/kube-cockpit 
+cd kube-cockpit
+npm install 
+```
+
 #### Run
 
 Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -38,6 +47,20 @@ curl http://localhost:8001/k8s/api/v1/namespaces
 curl http://localhost:8001/k8s/api/v1/namespaces/kube-system/pods
 ```
 Run `npm run start -- --proxy-config proxy.conf.js` to start with proxy
+
+#### Generate
+> scaffolding angular artifacts <br/>
+> For more details checkout [playbook](./PLAYBOOK.md)    
+
+```bash
+# check of nest installed
+ng -v
+
+# generate components for `Breadcrumbs` Module
+ng g lib Breadcrumbs --prefix=ngx --tags=public-module --publishable=true
+ng g component breadcrumbs --project=breadcrumbs --module=breadcrumbs --flat --dry-run
+ng g service  breadcrumbs --project=breadcrumbs --module=breadcrumbs --dry-run
+```
 
 #### Build
 
@@ -90,3 +113,5 @@ Analyzing bundle size `npm run bundle-report`
     * https://github.com/kubeapps/hub https://hub.kubeapps.com/
 9. **hsd-devops** - kubernetes dashboard with angular
     * https://github.com/getfirstcn/hsd-devops
+10. **CI/CD pipeline** 
+    * https://github.com/banzaicloud/pipeline

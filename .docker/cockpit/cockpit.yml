@@ -1,0 +1,101 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: cockpit
+  annotations:
+    "openshift.io/display-name": cockpit
+    description: |
+      cockpit - A Multi-tenant UI for kubernetes
+    iconClass: icon-cogs
+    tags: "cockpit, spa"
+
+parameters:
+- description: The namespace to instantiate cockpit under. Defaults to 'kube-system'.
+  name: NAMESPACE
+  required: true
+- description: The location of the cockpit image
+  name: IMAGE_COCKPIT
+  value: xmlking/cockpit:latest
+
+objects:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: cockpit-config
+    namespace: "${NAMESPACE}"
+  data:
+    nginx.conf: |
+
+
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app: cockpit
+    name: cockpit
+    namespace: "${NAMESPACE}"
+  spec:
+    to:
+      kind: Service
+      name: cockpit
+    tls:
+      termination: edge
+    port:
+      targetPort: cockpit-http
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: cockpit
+    annotations:
+    name: cockpit
+    namespace: "${NAMESPACE}"
+  spec:
+    ports:
+    - name: cockpit-http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: cockpit
+
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: cockpit
+    name: cockpit
+    namespace: "${NAMESPACE}"
+  spec:
+    replicas: 1
+    strategy:
+      type: Rolling
+    selector:
+      app: cockpit
+    template:
+      metadata:
+        labels:
+          app: cockpit
+        name: cockpit
+      spec:
+        containers:
+        - name: cockpit
+          image: ${IMAGE_COCKPIT}
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: "400m"
+              memory: "1024Mi"
+          ports:
+          - containerPort: 8080
+            name: cockpit
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/
+            name: cockpit-config
+
+        volumes:
+        - name: cockpit-config
+          configMap:
+            defaultMode: 420
+            name: cockpit-config

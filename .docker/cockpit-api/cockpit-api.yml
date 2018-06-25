@@ -1,0 +1,42 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: cockpit-api
+  name: cockpit-api
+spec:
+  replicas: 1
+  selector:
+    app: cockpit-api
+    deploymentconfig: cockpit-api
+  strategy:
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      labels:
+        app: cockpit-api
+        deploymentconfig: cockpit-api
+    spec:
+      containers:
+      - env:
+        - name: TYPEORM_HOST
+          value: mongodb
+        - name: TYPEORM_DATABASE
+          value: cockpit
+        - name: TYPEORM_USERNAME
+          value: mdbuser
+        - name: TYPEORM_PASSWORD
+          value: cockpit123
+        image: >-
+          xmlking/cockpit-api:latest
+        imagePullPolicy: Always
+        name: cockpit-api
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+      restartPolicy: Always

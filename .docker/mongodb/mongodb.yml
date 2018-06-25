@@ -1,0 +1,49 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: mongodb
+  name: mongodb
+spec:
+  replicas: 1
+  selector:
+    app: mongodb
+    deploymentconfig: mongodb
+  strategy:
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      labels:
+        app: mongodb
+        deploymentconfig: mongodb
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_ADMIN_PASSWORD
+          value: cockpit321
+        - name: MONGODB_DATABASE
+          value: cockpit
+        - name: MONGODB_PASSWORD
+          value: cockpit123
+        - name: MONGODB_USER
+          value: mdbuser
+        image: >-
+          registry.access.redhat.com/rhscl/mongodb-36-rhel7
+        imagePullPolicy: Always
+        name: mongodb
+        ports:
+        - containerPort: 27017
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mongodb/data
+          name: mongodb-volume-1
+      restartPolicy: Always
+      volumes:
+      - name: mongodb-volume-1
+        persistentVolumeClaim:
+          claimName: mongo-data

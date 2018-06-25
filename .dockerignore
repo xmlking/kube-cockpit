@@ -31,3 +31,18 @@ e2e/*.map
 #System Files
 .DS_Store
 Thumbs.db
+
+#SUMO
+development.env
+docker-compose.yml
+.*
+*.md
+stories
+todo
+tools
+*.iml
+bs-config.json
+nx.json
+jest.config.*
+dist
+proxy.conf.js
