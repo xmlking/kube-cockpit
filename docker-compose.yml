@@ -50,7 +50,7 @@ services:
       volumes:
       - .docker/cockpit/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
       ports:
-      - 80:8080
+      - 4200:8080
       depends_on:
       - keycloak
       - api

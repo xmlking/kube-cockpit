@@ -22,7 +22,7 @@ docker build --tag=cockpit -f .docker/cockpit/prod.dockerfile .
 
 ### Run
 ```bash
-docker run -it  -p 80:8080  cockpit
+docker run -it  -p 4200:8080  cockpit
 ```
 
 The app will be available at http://localhost:80
