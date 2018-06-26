@@ -10,7 +10,6 @@ import { NamespaceDetailComponent } from './components/namespace-detail/namespac
 import { NamespaceEditComponent } from './components/namespace-edit/namespace-edit.component';
 import { NamespaceService } from './services/namespace.service';
 
-
 @NgModule({
   imports: [
     SharedModule,
@@ -20,10 +19,11 @@ import { NamespaceService } from './services/namespace.service';
     MomentModule,
     RouterModule.forChild([
       /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+      { path: '', redirectTo: 'namespace', pathMatch: 'full', data: { animation: 'namespace' } },
       {
-        path: '', component: NamespaceComponent, data: { animation: 'namespace' },
+        path: 'namespace', component: NamespaceComponent, data: { animation: 'namespace', roles: ['ROLE_USER', 'ROLE_ADMIN'] },
         children: [
-          { path: ':name', component: NamespaceDetailComponent },
+          { path: ':name', component: NamespaceDetailComponent, data: { animation: 'namespace-detail' } },
         ],
       },
     ]),

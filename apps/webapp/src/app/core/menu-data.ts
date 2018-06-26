@@ -13,8 +13,8 @@ export const defaultMenu: MenuItem[] = [
   },
   {
     name: 'Namespace',
-    icon: 'dashboard',
-    link: '/dashboard/namespace'
+    icon: 'view_list',
+    link: '/dashboard/k8s/namespace'
   },
   // {
   //   name: 'Custom components',
@@ -61,6 +61,11 @@ export const defaultMenu: MenuItem[] = [
         name: 'Virtual Scroll',
         icon: 'view_list',
         link: '/dashboard/experiments/virtual-scroll'
+      },
+      {
+        name: 'Sticky Table',
+        icon: 'view_list',
+        link: '/dashboard/experiments/table'
       }
     ]
   },

@@ -59,6 +59,7 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
     this._mediaSubscription.unsubscribe();
   }
 
+  // FIXME: do we still need scroll fix for angular 6.1.x?
   onActivate(e, scrollContainer) {
     scrollContainer.scrollTop = 0;
   }

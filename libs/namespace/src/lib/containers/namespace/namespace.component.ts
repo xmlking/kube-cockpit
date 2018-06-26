@@ -73,6 +73,21 @@ export class NamespaceComponent extends EntitiesComponent<V1Namespace, Namespace
     );
   }
 
+  // required to override
+  getNewEntity(): V1Namespace {
+    const entity = new V1Namespace();
+    return entity;
+  }
+
+  // optional
+  showDetails(entity: V1Namespace) {
+    if(entity) {
+      this.store.dispatch(new Navigate([`/dashboard/k8s/namespace/${entity.id}`]));
+    } else {
+      this.store.dispatch(new Navigate(['/dashboard/k8s/namespace']));
+    }
+  }
+
   openPopUp(entity: V1Namespace) {
     let isNew = false;
     if (!entity) {
@@ -100,19 +115,10 @@ export class NamespaceComponent extends EntitiesComponent<V1Namespace, Namespace
       )
       .subscribe(
         _ => {
-          this.snack.open(isNew ? 'Namespace Created!' : 'Namespace Updated!', 'OK', { duration: 5000 })
-          this.store.dispatch(new Navigate([`/dashboard/namespace`]))
+          this.snack.open(isNew ? 'Namespace Created!' : 'Namespace Updated!', 'OK', { duration: 5000 });
+          this.store.dispatch(new Navigate([`/dashboard/k8s/namespace`]))
         },
         error => this.snack.open(error, 'OK', { duration: 10000 })
       );
-  }
-  // required to override
-  getNewEntity(): V1Namespace {
-    const entity = new V1Namespace();
-    return entity;
-  }
-
-  showDetails(entity: V1Namespace) {
-    this.store.dispatch(new Navigate([`/dashboard/namespace/${entity.id}`]))
   }
 }

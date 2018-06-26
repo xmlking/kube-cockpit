@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 export class NamespaceService extends EntityService<V1Namespace> {
   public baseUrl = environment.K8S_API_BASE_URL;
   globalNamespace = 'all';
-  readonly entityPath = '/api/v1/namespaces';
+  readonly entityPath = 'api/v1/namespaces';
   namespace: Subject<string> = new Subject<string>();
   constructor(httpClient: HttpClient) {
     super(httpClient);

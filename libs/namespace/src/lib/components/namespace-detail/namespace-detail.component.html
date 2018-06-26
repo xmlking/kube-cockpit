@@ -1,6 +1,5 @@
-<mat-card class="deployment-detail-card">
+<mat-card [@fadeAnimation]="animationTrigger$ | async">
   <mat-card-header>
-    <div mat-card-avatar class="deployment-detail-header-image"></div>
     <mat-card-title><h3>Selected Namespace</h3></mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
@@ -24,6 +23,4 @@
     </mat-list>
   </mat-card-content>
 </mat-card>
-<mat-divider></mat-divider>
 
-<!--<nax-pod-with-label  [namespace]="namespace.metadata.name"></nax-pod-with-label>-->
