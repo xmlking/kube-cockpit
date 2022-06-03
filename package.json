@@ -60,7 +60,7 @@
     "@angular/cdk-experimental": "^6.3.0",
     "@angular/common": "^6.1.0-beta.2",
     "@angular/compiler": "^6.1.0-beta.2",
-    "@angular/core": "^6.1.0-beta.2",
+    "@angular/core": "^11.0.5",
     "@angular/flex-layout": "^6.0.0-beta.16",
     "@angular/forms": "^6.1.0-beta.2",
     "@angular/material": "^6.3.0",
