@@ -71,7 +71,7 @@
     "@angular/router": "^6.1.0-beta.2",
     "@angular/service-worker": "^6.1.0-beta.2",
     "@nestjs/common": "^5.0.1",
-    "@nestjs/core": "^5.0.1",
+    "@nestjs/core": "^9.2.1",
     "@nestjs/microservices": "^5.0.1",
     "@nestjs/swagger": "^2.2.0",
     "@nestjs/typeorm": "^5.0.1",
