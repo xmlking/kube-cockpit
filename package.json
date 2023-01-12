@@ -84,7 +84,7 @@
     "chart.js": "^2.7.2",
     "chart.piecelabel.js": "^0.11.0",
     "class-transformer": "^0.1.9",
-    "class-validator": "^0.8.5",
+    "class-validator": "^0.14.0",
     "core-js": "^2.5.7",
     "dotenv": "^6.0.0",
     "fastify": "^1.6.0",
